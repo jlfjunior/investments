@@ -1,4 +1,4 @@
-using Investments.Catalog.Domain;
+using Investments.Catalog.Domain.Entities;
 using Investments.Core.DomainObjects;
 
 namespace Investments.UnitTests;
