@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.JavaScript;
 using Investments.Catalog.Domain.Entities;
 using Investments.Core.Data;
 
@@ -9,8 +10,9 @@ public interface IProductRepository : IRepository<Product>
     void Update(Product product);
     Task<Product> FindAsync(Guid id);
     Task<IEnumerable<Product>> GetAllAsync();
-
+    
     void Add(Quote quote);
     void Update(Quote quote);
     void Remove(Quote quote);
+    Task<Quote> FindAsync(Guid productId, DateTime date);
 }

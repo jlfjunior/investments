@@ -50,4 +50,11 @@ public class ProductRepository : IProductRepository
     {
         _dbContext.Quotes.Remove(quote);
     }
+
+    public async Task<Quote> FindAsync(Guid productId, DateTime date)
+    {
+        return await _dbContext.Quotes
+            .Where(quote => quote.ProductId == productId && quote.Date == date)
+            .SingleOrDefaultAsync();
+    }
 }
