@@ -1,7 +1,7 @@
 using Investments.Catalog.Domain.Entities;
 using Investments.Core.DomainObjects;
 
-namespace Investments.UnitTests;
+namespace Investments.UnitTests.Catalog.Domain.Entities;
 
 public class ProductTest
 {

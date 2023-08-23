@@ -28,4 +28,12 @@
       <ProjectReference Include="..\..\src\Investments.Catalog.Domain\Investments.Catalog.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Catalog\Domain\Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Catalog\Domain\Services\QuoteServiceTest.cs" />
+    </ItemGroup>
+
 </Project>

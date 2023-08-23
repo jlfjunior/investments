@@ -1,3 +1,4 @@
+using Investments.Catalog.Domain.Events;
 using Investments.Core.DomainObjects;
 
 namespace Investments.Catalog.Domain.Entities;
@@ -20,6 +21,8 @@ public class Quote : Entity
         Value = value;
         
         IsValid();
+        
+        AddEvent(new QuoteProductCreated(ProductId, Date, Value));
     }
 
     public void UpdateValue(decimal value)
@@ -27,6 +30,8 @@ public class Quote : Entity
         Validations.LessOrEqualThanZero(value);
 
         Value = value;
+        
+        AddEvent(new QuoteProductUpdated(ProductId, Date, Value));
     }
 
     protected override void IsValid()

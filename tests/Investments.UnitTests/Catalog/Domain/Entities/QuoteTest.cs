@@ -1,6 +1,6 @@
 using Investments.Catalog.Domain.Entities;
 
-namespace Investments.UnitTests;
+namespace Investments.UnitTests.Catalog.Domain.Entities;
 
 public class QuoteTest
 {
@@ -14,9 +14,11 @@ public class QuoteTest
             .Generate();
         
         var quote = new Faker<Quote>()
-            .CustomInstantiator(faker => new Quote(product, faker.Date.Recent(), faker.Random.Decimal(0.01M, 100.00M)));
+            .CustomInstantiator(faker => new Quote(product, faker.Date.Recent(), faker.Random.Decimal(0.01M, 100.00M)))
+            .Generate();
 
         quote.Should().NotBeNull();
+        quote.DomainEvents.Should().HaveCount(1);
     }
     
     [Fact]
@@ -36,5 +38,6 @@ public class QuoteTest
         
         quote.Should().NotBeNull();
         quote.Value.Should().Be(1.50M);
+        quote.DomainEvents.Should().HaveCount(2);
     }
 }
