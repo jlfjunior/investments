@@ -9,6 +9,7 @@ public interface IProductRepository : IRepository<Product>
     void Add(Product product);
     void Update(Product product);
     Task<Product> FindAsync(Guid id);
+    Task<bool> ExistAsync(string symbol);
     Task<IEnumerable<Product>> GetAllAsync();
     
     void Add(Quote quote);

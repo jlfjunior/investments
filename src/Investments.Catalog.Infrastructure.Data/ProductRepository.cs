@@ -31,6 +31,14 @@ public class ProductRepository : IProductRepository
         return await _dbContext.Products.FindAsync(id);
     }
 
+    public async Task<bool> ExistAsync(string symbol)
+    {
+        var product = await _dbContext.Products.Where(product => product.Symbol == symbol)
+            .FirstOrDefaultAsync();
+
+        return product != null;
+    }
+
     public async Task<IEnumerable<Product>> GetAllAsync()
     {
         return await _dbContext.Products.ToListAsync();
