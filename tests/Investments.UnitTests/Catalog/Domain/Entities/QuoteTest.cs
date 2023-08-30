@@ -1,3 +1,4 @@
+using Bogus.Extensions.Brazil;
 using Investments.Catalog.Domain.Entities;
 
 namespace Investments.UnitTests.Catalog.Domain.Entities;
@@ -9,7 +10,7 @@ public class QuoteTest
     {
         var product = new Faker<Product>()
             .CustomInstantiator(faker
-                => new Product(name: faker.Name.FullName(),
+                => new Product(cnpj: faker.Company.Cnpj(false),  name: faker.Name.FullName(),
                     symbol: faker.Name.FirstName()))
             .Generate();
         
@@ -26,7 +27,7 @@ public class QuoteTest
     {
         var product = new Faker<Product>()
             .CustomInstantiator(faker
-                => new Product(name: faker.Name.FullName(),
+                => new Product(cnpj: faker.Company.Cnpj(false), name: faker.Name.FullName(),
                     symbol: faker.Name.FirstName()))
             .Generate();
         

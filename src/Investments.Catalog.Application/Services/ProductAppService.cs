@@ -23,7 +23,7 @@ public class ProductAppService : IProductAppService
         if (await _productRepository.ExistAsync(productRequest.Symbol)) 
             throw new DomainException("");
 
-        var product = new Product(productRequest.Name, productRequest.Symbol);
+        var product = new Product(productRequest.CNPJ, productRequest.Name, productRequest.Symbol);
 
         _productRepository.Add(product);
 

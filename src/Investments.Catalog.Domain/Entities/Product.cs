@@ -4,6 +4,7 @@ namespace Investments.Catalog.Domain.Entities;
 
 public class Product : Entity, IAggregateRoot
 {
+    public CNPJ CNPJ { get; init; }
     public string Name { get; private set; }
     public string Symbol { get; private set; }
     public bool IsEnabled { get; private set; }
@@ -13,8 +14,9 @@ public class Product : Entity, IAggregateRoot
 
     protected Product() { }
 
-    public Product(string name, string symbol)
+    public Product(string cnpj, string name, string symbol)
     {
+        CNPJ = new CNPJ(cnpj);
         Name = name;
         Symbol = symbol;
         CreatedAt = DateTime.Now;

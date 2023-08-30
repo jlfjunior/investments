@@ -1,3 +1,4 @@
+using Bogus.Extensions.Brazil;
 using Investments.Catalog.Domain.Entities;
 using Investments.Core.DomainObjects;
 
@@ -10,7 +11,7 @@ public class ProductTest
     {
         var product = new Faker<Product>()
             .CustomInstantiator(faker
-                => new Product(name: faker.Name.FullName(),
+                => new Product(cnpj: faker.Company.Cnpj(false), name: faker.Name.FullName(),
                     symbol: faker.Name.FirstName()))
             .Generate();
 
@@ -28,7 +29,7 @@ public class ProductTest
     {
         var product = new Faker<Product>()
             .CustomInstantiator(faker
-                => new Product(name: faker.Name.FullName(),
+                => new Product(cnpj: faker.Company.Cnpj(false), name: faker.Name.FullName(),
                     symbol: faker.Name.FirstName()))
             .Generate();
 
@@ -41,12 +42,12 @@ public class ProductTest
     }
     
     [Theory]
-    [InlineData("Fund", null, "Value cannot be null, empty or white spaces.")]
-    [InlineData(null, "XPTO", "Value cannot be null, empty or white spaces.")]
-    public void Product_IsValid_MustThrowDomainException(string name, string symbol, string message)
+    [InlineData("12345678901","Fund", null, "Value cannot be null, empty or white spaces.")]
+    [InlineData("12345678901",null, "XPTO", "Value cannot be null, empty or white spaces.")]
+    public void Product_IsValid_MustThrowDomainException(string cnpj, string name, string symbol, string message)
     {
         var exception = Assert.Throws<DomainException>(() => 
-            new Product(name, symbol));
+            new Product(cnpj, name, symbol));
 
         exception.Message.Should().Be(message);
     }
