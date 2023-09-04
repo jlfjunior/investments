@@ -8,11 +8,20 @@
 
     <ItemGroup>
       <Compile Remove="Class1.cs" />
+      <Compile Remove="Messages\CommonMessges\**" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="FluentValidation" Version="11.7.1" />
       <PackageReference Include="MediatR" Version="12.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Messages\CommonMessges\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Messages\CommonMessges\**" />
     </ItemGroup>
 
 </Project>

@@ -10,6 +10,7 @@ public class QuoteProductUpdated : DomainEvent
     public QuoteProductUpdated(Guid aggregateId, DateTime date, decimal value)
         : base(aggregateId)
     {
+        AggregateId = aggregateId;
         Date = date;
         Value = value;
     }

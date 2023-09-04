@@ -12,9 +12,9 @@ public abstract class Entity
     
     public ICollection<DomainEvent> DomainEvents { get; private set; }
 
-    public void AddEvent(DomainEvent domainEvent)
+    public void AddEvent(DomainEvent @event)
     {
-        DomainEvents.Add(domainEvent); 
+        DomainEvents.Add(@event); 
     }
     
     protected abstract void IsValid();

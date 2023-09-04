@@ -1,4 +1,3 @@
-using FluentValidation.Validators;
 using MediatR;
 
 namespace Investments.Core.Messages;
