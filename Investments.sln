@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investments.Operations.Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investments.Operations.Infrastructure.Data", "src\Investments.Operations.Infrastructure.Data\Investments.Operations.Infrastructure.Data.csproj", "{948DA3CE-69AA-47A0-B9BB-9C0504E8A72F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investments.EventSourcing", "src\Investments.EventSourcing\Investments.EventSourcing.csproj", "{D62DAF53-98D9-432A-95F0-E2CE3DB420E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{948DA3CE-69AA-47A0-B9BB-9C0504E8A72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{948DA3CE-69AA-47A0-B9BB-9C0504E8A72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{948DA3CE-69AA-47A0-B9BB-9C0504E8A72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62DAF53-98D9-432A-95F0-E2CE3DB420E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62DAF53-98D9-432A-95F0-E2CE3DB420E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62DAF53-98D9-432A-95F0-E2CE3DB420E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62DAF53-98D9-432A-95F0-E2CE3DB420E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6773167C-BF69-4024-9F92-E22A6A37455F} = {21DE4E00-FC1B-43C0-B210-AD3D875B0929}
@@ -74,5 +80,6 @@ Global
 		{87E5A8EE-1388-47FF-8B05-FE7195118360} = {86D0F14D-F485-4EF8-8DEE-2FC12C47279D}
 		{97C36D4A-3E2B-4311-98DE-45CEA425D4A2} = {86D0F14D-F485-4EF8-8DEE-2FC12C47279D}
 		{948DA3CE-69AA-47A0-B9BB-9C0504E8A72F} = {86D0F14D-F485-4EF8-8DEE-2FC12C47279D}
+		{D62DAF53-98D9-432A-95F0-E2CE3DB420E7} = {86D0F14D-F485-4EF8-8DEE-2FC12C47279D}
 	EndGlobalSection
 EndGlobal
