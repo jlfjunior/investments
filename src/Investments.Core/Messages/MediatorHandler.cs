@@ -1,3 +1,4 @@
+using Investments.Core.Data.EventSourcing;
 using Investments.Core.Messages;
 using MediatR;
 
@@ -9,15 +10,18 @@ namespace Investments.Core.Messages;
 public class MediatorHandler : IMediatorHandler
 {
     private readonly IMediator _mediator;
+    private readonly IEventSourcingRepository _eventSourcingRepository;
 
-    public MediatorHandler(IMediator mediator)
+    public MediatorHandler(IMediator mediator, IEventSourcingRepository eventSourcingRepository)
     {
         _mediator = mediator;
+        _eventSourcingRepository = eventSourcingRepository;
     }
     
     public async Task PublishEventAsync<T>(T @event) where T : Event
     {
         await _mediator.Publish(@event);
+        await _eventSourcingRepository.SaveEvent(@event);
     }
 
     public async Task PublishNotificationAsync<T>(T notification) where T : DomainNotificationEvent
