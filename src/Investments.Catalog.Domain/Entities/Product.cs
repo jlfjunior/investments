@@ -8,6 +8,8 @@ public class Product : Entity, IAggregateRoot
     public string Name { get; private set; }
     public string Symbol { get; private set; }
     public bool IsEnabled { get; private set; }
+    public bool IsClosedForPurchase { get; private set; }
+    public bool IsClosedForWithdraw { get; private set; }
     public DateTime CreatedAt { get; private set; }
     
     public ICollection<Quote> Quotes { get; private set; }
