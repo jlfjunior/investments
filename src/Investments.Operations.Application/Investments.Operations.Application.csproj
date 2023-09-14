@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Events\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Investments.Core\Investments.Core.csproj" />
       <ProjectReference Include="..\Investments.Operations.Domain\Investments.Operations.Domain.csproj" />
     </ItemGroup>

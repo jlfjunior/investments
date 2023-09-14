@@ -9,21 +9,28 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, boo
 {
     private readonly ILogger<CreateOrderCommandHandler> _logger;
     private readonly IOrderRepository _orderRepository;
+    private readonly IProductRepository _productRepository;
 
-    public CreateOrderCommandHandler(ILogger<CreateOrderCommandHandler> logger, IOrderRepository orderRepository)
+    public CreateOrderCommandHandler(ILogger<CreateOrderCommandHandler> logger, IOrderRepository orderRepository,
+        IProductRepository productRepository)
     {
         _logger = logger;
         _orderRepository = orderRepository;
+        _productRepository = productRepository;
     }
-    
+
     public async Task<bool> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
+        var product = await _productRepository.GetAsync(request.ProductId);
+
+        if (product == null) return false;
+
         var order = new Order(request.ProductId, request.OperationDate);
-        
+
         _orderRepository.Add(order);
 
         _logger.LogInformation("OrderId:{orderId} registered successfully.", order.Id);
-        
+
         return true;
     }
 }
